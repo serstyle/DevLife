@@ -1,0 +1,33 @@
+﻿@model IEnumerable<testMvc.Models.IStory>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    @foreach (var item in Model)
+    {
+        <component type="typeof(testMvc.Components.StoryComponent)"
+                   render-mode="Static" param-Story="@item" />
+        @*<div class="card mb-1">
+                <div class="card-header d-flex justify-content-between">
+                    <h5>@Html.DisplayFor(model => item.title)</h5>
+                    <div class="d-flex">
+                        <button onclick="downVote(@item.id)">-</button>
+                        <p id="numberVote-@item.id">@Html.DisplayFor(model => item.numberVote)</p>
+                        <button>+</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@Html.DisplayFor(model => item.main)</p>
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.id">Details</a>
+                    <a asp-action="Edit" class="btn btn-danger" asp-route-id="@item.id">Edit</a>
+                </div>
+            </div>*@
+
+    }
+
+</div>

@@ -1,0 +1,20 @@
+﻿<div class="card mb-1">
+    <div class="card-header d-flex justify-content-between">
+        <h5>@Story.title</h5>
+        <div class="d-flex">
+            <button>-</button>
+            <p id="numberVote-@Story.id">@Story.numberVote</p>
+            <button>+</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <p class="card-text">@Story.main</p>
+        <a href="/Story/Details/@Story.id"class="btn btn-primary" asp-route-id="@Story.id">Details</a>
+        <a href="/Story/Edit/@Story.id"  class="btn btn-danger">Edit</a>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public testMvc.Models.Story Story { get; set; }
+
+}
