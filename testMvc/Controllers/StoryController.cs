@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using testMvc.Services;
-using testMvc.Models;
-namespace testMvc.Controllers
+using DevLifeMvc.Services;
+using DevLifeMvc.Models;
+namespace DevLifeMvc.Controllers
 {
     public class StoryController : Controller
     {
@@ -62,7 +62,7 @@ namespace testMvc.Controllers
         // POST: StoryController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(string id, [Bind("id,title,main,vote")] Story model)
+        public async Task<ActionResult> Edit(string id, Story model)
         {
          
             
@@ -78,18 +78,30 @@ namespace testMvc.Controllers
         }
 
         // GET: StoryController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(string id)
         {
-            return View();
+            if (id.Length == 0)
+            {
+                return NotFound();
+            }
+
+            var story = await _stories.Get(id);
+            if (story == null)
+            {
+                return NotFound();
+            }
+
+            return View(story);
         }
 
         // POST: StoryController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(string id, IFormCollection collection)
         {
             try
             {
+                await _stories.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using testMvc.Data;
-using testMvc.Models;
+using DevLifeMvc.Data;
+using DevLifeMvc.Models;
 
-namespace testMvc.Controllers
+namespace DevLifeMvc.Controllers
 {
     public class MoviesController : Controller
     {

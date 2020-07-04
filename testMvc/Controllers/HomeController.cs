@@ -5,22 +5,26 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using testMvc.Models;
+using DevLifeMvc.Models;
+using DevLifeMvc.Services;
 
-namespace testMvc.Controllers
+namespace DevLifeMvc.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IStoryService _stories;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IStoryService storyService)
         {
             _logger = logger;
+            _stories = storyService;
         }
 
-        public IActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var res = await _stories.Get();
+            return View(res.ToList());
         }
 
         public IActionResult Privacy()

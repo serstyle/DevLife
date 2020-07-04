@@ -1,4 +1,4 @@
-﻿using testMvc.Models;
+﻿using DevLifeMvc.Models;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 
-namespace testMvc.Services
+namespace DevLifeMvc.Services
 {
     public class StoryService : IStoryService
     {
@@ -79,6 +79,13 @@ namespace testMvc.Services
             var client = _clientFactory.CreateClient("backend");
 
             using var response = await client.PostAsync($"api/stories/", storyItemJson);
+            response.EnsureSuccessStatusCode();
+        }
+
+        public async Task Delete(string id)
+        {
+            var client = _clientFactory.CreateClient("backend");
+            using var response = await client.DeleteAsync($"api/stories/{id}");
             response.EnsureSuccessStatusCode();
         }
     }

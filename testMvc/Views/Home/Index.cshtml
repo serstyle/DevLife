@@ -1,8 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<DevLifeMvc.Models.IStory>
+@{
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    @foreach (var item in Model)
+    {
+        <component type="typeof(DevLifeMvc.Components.StoryComponent)"
+                   render-mode="Static" param-Story="@item" />
+    }
+
 </div>

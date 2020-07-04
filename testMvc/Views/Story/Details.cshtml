@@ -1,4 +1,4 @@
-﻿@model testMvc.Models.IStory
+﻿@model DevLifeMvc.Models.IStory
 
 @{
     ViewData["Title"] = "Details";
@@ -9,18 +9,20 @@
 <div>
     <h4>Movie</h4>
     <hr />
-    <div class="card">
+    <component type="typeof(DevLifeMvc.Components.StoryComponent)"
+               render-mode="Static" param-Story="@Model" param-isDetailsPage="@true" />
+    @*<div class="card">
         <div class="card-header d-flex justify-content-between">
             <h5>@Html.DisplayFor(model => model.title)</h5>
             <p>@Html.DisplayFor(model => model.numberVote)</p>
         </div>
         <div class="card-body">
             <p class="card-text">@Html.DisplayFor(model => model.main)</p>
-            <a asp-action="Index" class="btn btn-primary">@testMvc.Utilities.Resource.goBack</a>
+            <a asp-action="Index" class="btn btn-primary">@DevLifeMvc.Utilities.Resource.goBack</a>
         </div>
-    </div>
+    </div>*@
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a>
-    <a asp-action="Index">@testMvc.Utilities.Resource.goBack</a>
+    @*<a asp-action="Edit" asp-route-id="@Model.id">Edit</a>*@
+    <a asp-action="Index">@DevLifeMvc.Utilities.Resource.goBack</a>
 </div>

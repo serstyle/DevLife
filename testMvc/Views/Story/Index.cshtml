@@ -1,4 +1,4 @@
-﻿@model IEnumerable<testMvc.Models.IStory>
+﻿@model IEnumerable<DevLifeMvc.Models.IStory>
 @{
     ViewData["Title"] = "Index";
 }
@@ -10,7 +10,7 @@
     </p>
     @foreach (var item in Model)
     {
-        <component type="typeof(testMvc.Components.StoryComponent)"
+        <component type="typeof(DevLifeMvc.Components.StoryComponent)"
                    render-mode="Static" param-Story="@item" />
         @*<div class="card mb-1">
                 <div class="card-header d-flex justify-content-between">

@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using testMvc.Data;
+using DevLifeMvc.Data;
 
-namespace testMvc.Migrations
+namespace DevLifeMvc.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
     [Migration("20200617141518_InitialCreate")]
@@ -21,7 +21,7 @@ namespace testMvc.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("testMvc.Models.Movie", b =>
+            modelBuilder.Entity("DevLifeMvc.Models.Movie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

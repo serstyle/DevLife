@@ -1,4 +1,4 @@
-﻿<div class="card mb-1">
+﻿<div @key="Story" class="card mb-1">
     <div class="card-header d-flex justify-content-between">
         <h5>@Story.title</h5>
         <div class="d-flex">
@@ -9,12 +9,19 @@
     </div>
     <div class="card-body">
         <p class="card-text">@Story.main</p>
-        <a href="/Story/Details/@Story.id"class="btn btn-primary" asp-route-id="@Story.id">Details</a>
-        <a href="/Story/Edit/@Story.id"  class="btn btn-danger">Edit</a>
+        @if (!isDetailsPage)
+        {<a href="/Story/Details/@Story.id" class="btn btn-primary" asp-route-id="@Story.id">Details</a>}
+        <a href="/Story/Edit/@Story.id" class="btn btn-warning">Edit</a>
+        @if (!isDeletePage)
+        {<a href="/Story/Delete/@Story.id" class="btn btn-danger">Delete</a>}
     </div>
 </div>
 @code {
     [Parameter]
-    public testMvc.Models.Story Story { get; set; }
+    public DevLifeMvc.Models.Story Story { get; set; }
+    [Parameter]
+    public bool isDeletePage { get; set; }
+    [Parameter]
+    public bool isDetailsPage { get; set; }
 
 }
