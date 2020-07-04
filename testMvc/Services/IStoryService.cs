@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using testMvc.Models;
+using DevLifeMvc.Models;
 
-namespace testMvc.Services
+namespace DevLifeMvc.Services
 {
     public interface IStoryService
     {
@@ -12,5 +12,6 @@ namespace testMvc.Services
         Task<IEnumerable<IStory>> Get();
         Task<IStory> Get(string id);
         Task Create(Story storyIn);
+        Task Delete(string id);
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace testMvc.Data
+namespace DevLifeMvc.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

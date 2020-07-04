@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using testMvc.Models;
+using DevLifeMvc.Models;
 
-namespace testMvc.Data
+namespace DevLifeMvc.Data
 {
     public class MvcMovieContext : DbContext
     {
